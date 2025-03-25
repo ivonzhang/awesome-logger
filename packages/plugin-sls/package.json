@@ -2,12 +2,25 @@
   "name": "@awesome-logger/plugin-sls",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./esm": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsup --watch",
+    "build": "tsup"
   },
   "dependencies": {
-    "@awesome-logger/core": "workspace:*"
+    "@awesome-logger/core": "workspace:*",
+    "@aliyun-sls/web-track-browser": "0.3.9"
   },
   "devDependencies": {
     "tsup": "8.4.0",

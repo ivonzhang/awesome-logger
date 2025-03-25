@@ -1,7 +1,7 @@
-export abstract class LogPlugin<T> {
-  protected options: T;
+export abstract class LogPlugin {
+  protected options: any;
 
-  constructor(options: T) {
+  constructor(options: any) {
     this.options = options;
   }
 

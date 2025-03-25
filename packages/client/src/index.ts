@@ -7,8 +7,8 @@ class Client {
     this.logger = logger || new Logger();
   }
 
-  usePlugin(plugin: LogPlugin<unknown>) {
-    this.logger.use((logData) => plugin.sendLog(logData));
+  usePlugin(plugin: LogPlugin) {
+    this.logger.use(plugin);
     return this;
   }
 

@@ -48,6 +48,9 @@ importers:
 
   packages/plugin-sls:
     dependencies:
+      '@aliyun-sls/web-track-browser':
+        specifier: 0.3.9
+        version: 0.3.9
       '@awesome-logger/core':
         specifier: workspace:*
         version: link:../core
@@ -60,6 +63,18 @@ importers:
         version: 5.8.2
 
 packages:
+
+  '@aliyun-sls/web-base@0.3.9':
+    resolution: {integrity: sha512-UmRgTRzRyCqJywsjdFjMU+P/s3BGSc8laPsBo3YZ1fNAE8e3n2x5u2X7RGVwT9sHy+J+iUgaRHXqSXks+fxo7w==}
+
+  '@aliyun-sls/web-track-base@0.3.9':
+    resolution: {integrity: sha512-kL1Qox9WIIr3IOHtcPuwWWzlWx6fWfs1Y7UhQBv6fwfk2NToqEVUFl68DAfZtiIY39w7Mu5epwk2bnhSiV3gpw==}
+
+  '@aliyun-sls/web-track-browser@0.3.9':
+    resolution: {integrity: sha512-Gy8hm3ZmYDTZBwJgiata4/0/cPozxCLp8MEHdbipvHiEnzhCEKrkmLUmmqAr6fpKvmySHB06bska+1+MSOg7UQ==}
+
+  '@aliyun-sls/web-types@0.3.9':
+    resolution: {integrity: sha512-RbyUwW5XeFkdsP3NozepmUPQFQFtB6JvAob20O/NMwf0HEGDBNeNk8NKWshwQVOwyS9cdxCwC5uyRdKFiVP/Pg==}
 
   '@esbuild/aix-ppc64@0.25.1':
     resolution: {integrity: sha512-kfYGy8IdzTGy+z0vFGvExZtxkFlA4zAxgKEahG9KE1ScBjpQnFsNOX8KTU5ojNru5ed5CVoJYXFtoxaq5nFbjQ==}
@@ -1109,6 +1124,22 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
+
+  '@aliyun-sls/web-base@0.3.9':
+    dependencies:
+      '@aliyun-sls/web-types': 0.3.9
+
+  '@aliyun-sls/web-track-base@0.3.9':
+    dependencies:
+      '@aliyun-sls/web-types': 0.3.9
+
+  '@aliyun-sls/web-track-browser@0.3.9':
+    dependencies:
+      '@aliyun-sls/web-base': 0.3.9
+      '@aliyun-sls/web-track-base': 0.3.9
+      '@aliyun-sls/web-types': 0.3.9
+
+  '@aliyun-sls/web-types@0.3.9': {}
 
   '@esbuild/aix-ppc64@0.25.1':
     optional: true
