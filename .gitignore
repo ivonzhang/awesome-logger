@@ -49,3 +49,6 @@ Thumbs.db
 
 # turbo
 .turbo
+
+# Ignore dist directories in packages
+packages/*/dist/

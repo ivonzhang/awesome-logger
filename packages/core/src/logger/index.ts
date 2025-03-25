@@ -1,14 +1,36 @@
+import { IBaseFieldModel } from "../types";
+
 export class Logger {
-  private baseFields: Record<string, any>;
+  private baseFields: IBaseFieldModel;
   private plugins: ((logData: Record<string, any>) => void)[] = [];
 
-  constructor(baseFields: Record<string, any> = {}) {
+  constructor(baseFields: IBaseFieldModel = {
+    uid: '',
+    release: ''
+  }) {
     this.baseFields = baseFields;
   }
 
+  /**
+   * 使用插件
+   * @param plugin 
+   * @returns 
+   */
   use(plugin: (logData: Record<string, any>) => void) {
     this.plugins.push(plugin);
     return this;
+  }
+
+  /**
+   * 设置基础字段
+   * 说明：有些场景是异步返回基础信息的，所以用这个来补偿
+   * @param fields 
+   */
+  setBaseField(fields: Partial<IBaseFieldModel>) {
+    this.baseFields = {
+      ...this.baseFields,
+      ...(fields || {}),
+    }
   }
 
   private log(
@@ -31,15 +53,30 @@ export class Logger {
     });
   }
 
-  info(message: string, customFields?: Record<string, any>) {
-    this.log("info", message, customFields);
+  /**
+   * 发送 info 级别的日志
+   * @param key 
+   * @param data 
+   */
+  info(key: string, data?: Record<string, any>) {
+    this.log("info", key, data);
   }
 
-  warn(message: string, customFields?: Record<string, any>) {
-    this.log("warn", message, customFields);
+  /**
+   * 发送 warn 级别的日志
+   * @param key 
+   * @param data 
+   */
+  warn(key: string, data?: Record<string, any>) {
+    this.log("warn", key, data);
   }
 
-  error(message: string, customFields?: Record<string, any>) {
-    this.log("error", message, customFields);
+  /**
+   * 发送 error 级别的日志
+   * @param key 
+   * @param data 
+   */
+  error(key: string, data?: Record<string, any>) {
+    this.log("error", key, data);
   }
 }

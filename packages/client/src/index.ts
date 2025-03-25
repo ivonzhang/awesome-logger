@@ -1,28 +1,28 @@
-import Logger, {LogPlugin} from '@awesome-logger/core';
+import { Logger, LogPlugin } from "@awesome-logger/core";
 
 class Client {
-    private logger: Logger;
+  private logger: Logger;
 
-    constructor(logger?: Logger) {
-        this.logger = logger || new Logger();
-    }
+  constructor(logger?: Logger) {
+    this.logger = logger || new Logger();
+  }
 
-    usePlugin(plugin: LogPlugin) {
-        this.logger.use((logData) => plugin.sendLog(logData));
-        return this;
-    }
+  usePlugin(plugin: LogPlugin<unknown>) {
+    this.logger.use((logData) => plugin.sendLog(logData));
+    return this;
+  }
 
-    info(message: string, customFields?: Record<string, any>) {
-        this.logger.info(message, customFields);
-    }
+  info(message: string, customFields?: Record<string, any>) {
+    this.logger.info(message, customFields);
+  }
 
-    warn(message: string, customFields?: Record<string, any>) {
-        this.logger.warn(message, customFields);
-    }
+  warn(message: string, customFields?: Record<string, any>) {
+    this.logger.warn(message, customFields);
+  }
 
-    error(message: string, customFields?: Record<string, any>) {
-        this.logger.error(message, customFields);
-    }
+  error(message: string, customFields?: Record<string, any>) {
+    this.logger.error(message, customFields);
+  }
 }
 
-export default Client;    
+export default Client;
