@@ -1,0 +1,16 @@
+{
+  "name": "@awesome-logger/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "tsup": "8.4.0",
+    "typescript": "5.8.2"
+  },
+  "keywords": ["sls", "log", "awesome", "tracker"],
+  "author": "zhangivon",
+  "license": "MIT"
+}
