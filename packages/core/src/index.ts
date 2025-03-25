@@ -1,1 +1,2 @@
-const a = 1;
+export * from './logger';
+export * from './plugin';

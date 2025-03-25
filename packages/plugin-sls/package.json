@@ -1,12 +1,13 @@
 {
-  "name": "@awesome-logger/core",
+  "name": "@awesome-logger/plugin-sls",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.cjs",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@awesome-logger/core": "workspace:*"
   },
   "devDependencies": {
     "tsup": "8.4.0",
