@@ -4,6 +4,9 @@
   "description": "",
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -16,7 +19,9 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "prepublish": "pnpm run build",
+    "publish": "pnpm publish"
   },
   "dependencies": {
     "@awesome-logger/core": "workspace:*"

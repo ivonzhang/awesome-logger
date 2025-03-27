@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "publish:packages": "pnpm -r publish"
   },
   "keywords": [
     "sls",
@@ -16,6 +17,7 @@
   "author": "zhangivon",
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
     "@typescript-eslint/eslint-plugin": "^8.28.0",
     "@typescript-eslint/parser": "^8.28.0",
     "eslint": "^9.23.0",
