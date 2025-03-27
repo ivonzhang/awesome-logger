@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "publish:packages": "pnpm -r publish"
+    "publish:packages": "pnpm -r publish --access public"
   },
   "keywords": [
     "sls",
