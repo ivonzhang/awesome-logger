@@ -1,14 +1,38 @@
+import dayjs from "dayjs";
+import { serializeError } from "serialize-error";
+
 import { LogPlugin } from "../plugin";
-import { ILoggerBaseFieldModel } from "../types";
+import { ILoggerBaseFieldModel, ILoggerCommonFieldModel } from "../types";
+import {
+  clientSessionId,
+  clientSessionTime,
+  clientSessionTimeStr,
+} from "../utils/env/host";
+import { browser, browserVersion } from "../utils/dom/browser";
+import { device, os, version as osVersion } from "../utils/env/os";
 
 export class Logger {
+  private seqId = 1; // 日志序号
   private baseFields: ILoggerBaseFieldModel;
   private plugins: LogPlugin[] = [];
+  private commonFields: Partial<ILoggerCommonFieldModel> = {
+    ua: navigator.userAgent,
+    url: location.href,
+    browser,
+    browserVersion,
+    os,
+    osVersion,
+    device,
+    sessionId: clientSessionId,
+    sessionTime: clientSessionTime,
+    sessionTimeString: clientSessionTimeStr,
+  };
 
   constructor(
     baseFields: ILoggerBaseFieldModel = {
       uid: "",
       release: "",
+      env: "",
     }
   ) {
     this.baseFields = baseFields;
@@ -36,23 +60,43 @@ export class Logger {
     };
   }
 
-  private log(
-    type: string,
-    key: string,
-    customFields: Record<string, any> = {}
-  ) {
+  /**
+   * 发送日志
+   * @param type
+   * @param key
+   * @param data
+   */
+  private log(type: string, key: string, data?: Record<string, any> | string | number | boolean) {
+    const clientTime = Date.now();
+    const clientTimeStr = dayjs(clientTime).format("MM-DD HH:mm:ss");
+    const sendSeqId = this.seqId++;
+    // 合并日志数据
     const logData = {
+      ...this.commonFields,
       ...this.baseFields,
       type,
       key,
-      ...customFields,
+      data,
+      ...{
+        clientTime,
+        clientTimeStr,
+      },
+      seqId: sendSeqId,
     };
     this.sendLog(logData);
   }
 
   private sendLog(logData: Record<string, any>) {
+    const friendlyData = { ...logData };
+    // 处理 Error 类型的数据
+    for (const key in friendlyData) {
+      const value = friendlyData[key];
+      if (value instanceof Error) {
+        friendlyData[key] = serializeError(value);
+      }
+    }
     this.plugins.forEach((plugin) => {
-      plugin?.sendLog(logData);
+      plugin?.sendLog(friendlyData);
     });
   }
 
