@@ -124,6 +124,29 @@ client.info('这是一条自定义插件上报的日志');
 ```
 
 ---
+## 日志内置字段介绍
+|字段|类型|说明|
+|-|-|-|
+|uid|string | number|用户uid|
+|release|string|前端应用版本号|
+|env|string|环境：本地local、预发pre、线上prod|
+|type|string|类型，如日志等级：info、warn、error|
+|key|string|日志key，用以标识一条日志记录|
+|data|Record<string, any> | string|日志key对应到data数据|
+|ua|string|浏览器navigator.userAgent信息|
+|url|string|当前页面的url信息|
+|os|string|当前设备的操作系统信息|
+|osVersion|string|当前设备的操作系统版本|
+|traceId|string|前后端一起约定的uuid，用以追踪问题|
+|sessionId|string|会话ID，用以区分同一个会话范围内的日志|
+|browser|string|浏览器：chrome、Safari、ios_safari等|
+|browserVersion|string|浏览器版本信息|
+|container|string|页面运行所在容器信息，如：dingtalk（钉钉）、browser（浏览器）|
+|device|string|设备类型，如：phone（手机端）、desktop（桌面端）|
+|clientTime|string | number|客户端时间戳|
+
+
+---
 
 ## 🤝 贡献与反馈
 我们欢迎社区贡献！如果您有功能建议、bug 反馈或想参与开发，请提交 [GitHub Issue](https://github.com/ivonzhang/awesome-logger/issues) 或 Pull Request。
