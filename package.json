@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "publish:packages": "pnpm -r publish --access public"
+    "build": "turbo run build"
   },
   "keywords": [
     "sls",
