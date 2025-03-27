@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "turbo run dev",
+    "build": "turbo run build"
   },
   "keywords": [
     "sls",
@@ -19,6 +20,8 @@
     "@typescript-eslint/parser": "^8.28.0",
     "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-prettier": "^5.2.4"
-  }
+    "eslint-plugin-prettier": "^5.2.4",
+    "turbo": "^2.4.4"
+  },
+  "packageManager": "pnpm@10.7.0"
 }
