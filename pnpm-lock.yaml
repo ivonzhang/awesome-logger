@@ -38,6 +38,9 @@ importers:
       '@awesome-logger/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@awesome-logger/plugin-sls':
+        specifier: workspace:*
+        version: link:../../packages/plugin-sls
       react:
         specifier: ^19.0.0
         version: 19.0.0

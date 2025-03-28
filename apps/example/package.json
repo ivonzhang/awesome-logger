@@ -13,7 +13,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "@awesome-logger/client": "workspace:*",
-    "@awesome-logger/core": "workspace:*"
+    "@awesome-logger/core": "workspace:*",
+    "@awesome-logger/plugin-sls": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
