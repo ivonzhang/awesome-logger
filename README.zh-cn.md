@@ -128,6 +128,10 @@ client.usePlugin(customPlugin);
 client.info('这是一条自定义插件上报的日志');
 ```
 
+3. **效果如下图:**
+
+![demo](https://ivonzhang.github.io/awesome-logger/images/custom-log-demo.gif)
+
 ---
 
 ## 日志内置字段

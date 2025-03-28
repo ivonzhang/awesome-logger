@@ -128,6 +128,10 @@ client.usePlugin(customPlugin);
 client.info('This is a log reported by the custom plugin');
 ```
 
+3. **The effect is as shown below:**
+
+![demo](https://ivonzhang.github.io/awesome-logger/images/custom-log-demo.gif)
+
 ---
 
 ## Built-in Log Fields
