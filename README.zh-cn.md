@@ -125,7 +125,7 @@ const client = new Client();
 const customPlugin = new CustomLogPlugin({ /* 自定义配置 */ });
 client.usePlugin(customPlugin);
 
-client.info('这是一条自定义插件上报的日志');
+client.info('click', { message: 'click button' });
 ```
 
 3. **效果如下图:**

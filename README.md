@@ -125,7 +125,7 @@ const client = new Client();
 const customPlugin = new CustomLogPlugin({ /* Custom configuration */ });
 client.usePlugin(customPlugin);
 
-client.info('This is a log reported by the custom plugin');
+client.info('click', { message: 'click button' });
 ```
 
 3. **The effect is as shown below:**
