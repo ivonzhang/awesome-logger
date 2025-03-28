@@ -91,6 +91,18 @@ client.warn('api_timeout', { latency: 500 });
 client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 ```
 
+### 4. 日志上报到阿里云 SLS
+
+![demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
+
+> 注意事项
+1. 在使用 plugin-sls 之前，您需要创建一个阿里云账户。
+2. 开通 SLS 日志服务，支持免费试用一个月，50GB 容量。
+3. 创建一个日志项目（log project）。
+4. 然后创建一个日志库（logstore，前端上报时记得开启 Web Tracking 选项）。
+5. 上报一些日志后，方可创建索引。
+6. 索引支持设置、追加和覆盖。
+
 ---
 
 ## 🛠️ 自定义插件开发

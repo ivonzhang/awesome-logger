@@ -24,7 +24,7 @@ function App() {
         client.info('click', {
           message: 'click button',
         });
-  }
+    }
   }
 
   return (

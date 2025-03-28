@@ -70,11 +70,11 @@ const client = new Client(logger);
 
 // Register Alibaba Cloud SLS plugin
 const slsPlugin = new SLSLogPlugin({
-  endpoint: 'your-sls-endpoint',
-  accessKeyId: 'your-access-key-id',
-  accessKeySecret: 'your-access-key-secret',
+  host: 'your-sls-endpoint', // 公网域名
   project: 'your-project',
-  logstore: 'your-logstore'
+  logstore: 'your-logstore',
+  count: 20, // 发送条数阈值
+  time: 3, // 发送时间阈值
 });
 client.usePlugin(slsPlugin);
 ```
@@ -90,6 +90,18 @@ client.warn('api_timeout', { latency: 500 });
 // Report error log
 client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 ```
+
+### 4. Log to Alibaba Cloud SLS
+
+![demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
+
+> Attention
+1. Before using the plugin-sls, you need to create an Alibaba Cloud account.
+2. Activate the SLS logging service, which offers a free trial for one month with 50GB of storage.
+3. Create a log project.
+4. Then create a logstore (for frontend reporting, remember to enable the web tracking option).
+5. After reporting some logs, you can create an index.
+6. Indexes support settings, additions, and overwrites.
 
 ---
 
