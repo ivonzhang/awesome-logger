@@ -1,7 +1,7 @@
 {
   "name": "awesome-logger",
   "version": "1.0.0",
-  "description": "",
+  "description": "一款为前端开发者设计的高效日志上报工具，支持自定义 Plugin 上报到各大日志服务平台（如阿里云SLS、腾讯云CLS、自建日志系统等）",
   "main": "index.js",
   "scripts": {
     "dev": "turbo run dev",
@@ -11,18 +11,32 @@
     "sls",
     "log",
     "awesome",
-    "tracker"
+    "tracker",
+    "frontend",
+    "logging",
+    "plugin",
+    "observability",
+    "monitoring",
+    "error-tracking"
   ],
   "author": "zhangivon",
   "license": "MIT",
   "devDependencies": {
-    "@changesets/cli": "^2.28.1",
-    "@typescript-eslint/eslint-plugin": "^8.28.0",
-    "@typescript-eslint/parser": "^8.28.0",
-    "eslint": "^9.23.0",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-prettier": "^5.2.4",
-    "turbo": "^2.4.4"
+    "@changesets/cli": "2.28.1",
+    "@typescript-eslint/eslint-plugin": "8.28.0",
+    "@typescript-eslint/parser": "8.28.0",
+    "eslint": "9.23.0",
+    "eslint-config-prettier": "10.1.1",
+    "eslint-plugin-prettier": "5.2.5",
+    "turbo": "2.4.4"
   },
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.7.0",
+  "homepage": "https://github.com/ivonzhang/awesome-logger",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivonzhang/awesome-logger.git"
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
 }

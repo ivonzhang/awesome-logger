@@ -1,60 +1,60 @@
+# awesome-logger - A Flexible and Extensible Frontend Logging Solution
 
-
-# awesome-logger - 灵活可扩展的前端日志上报解决方案
+[English](README.md) | [中文](README.zh-cn.md)
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**awesome-logger** 是一款为前端开发者设计的高效日志上报工具，专注于灵活性、可扩展性和开发者体验。通过内置标准化日志字段、插件化架构以及多维度日志管理，帮助开发者快速实现日志收集、上报与分析，提升应用稳定性与问题排查效率。
+**awesome-logger** is an efficient logging tool designed for frontend developers, focusing on flexibility, extensibility, and developer experience. With built-in standardized log fields, a plugin-based architecture, and multi-dimensional log management, it helps developers quickly implement log collection, reporting, and analysis, improving application stability and troubleshooting efficiency.
 
 ---
 
-## 🌟 核心优势
+## 🌟 Key Advantages
 
-1. **内置标准化日志字段，助力高效排查**  
-   预定义了如 `os`（操作系统）、`device`（设备型号）、`ua`（用户代理）等关键环境字段，无需额外开发即可收集全面的上下文信息，帮助开发者快速定位问题根源。
+1. **Built-in standardized log fields for efficient troubleshooting**  
+   Predefined key environment fields such as `os` (operating system), `device` (device model), and `ua` (user agent) allow comprehensive context collection without additional development, helping developers quickly pinpoint the root cause of issues.
 
-2. **基础字段灵活配置，支持实时查询分析**  
-   允许用户自定义基础字段（如 `uid`、`env` 等），这些字段会自动附加到每条日志中。结合阿里云 SLS 等日志服务，可实现日志的实时过滤与查询，精准定位用户反馈的问题场景。
+2. **Flexible configuration of basic fields, supporting real-time query and analysis**  
+   Users can customize basic fields (e.g., `uid`, `env`), which are automatically appended to each log. Combined with services like Alibaba Cloud SLS, this enables real-time log filtering and querying, accurately identifying user feedback scenarios.
 
-3. **多等级日志管理，构建应用健康监控**  
-   支持 `info`、`warn`、`error` 等多种日志等级，帮助开发者建立稳定性大盘，实时监控应用健康状态。通过不同等级的日志分类，可快速识别潜在风险与异常。
+3. **Multi-level log management for application health monitoring**  
+   Supports multiple log levels such as `info`, `warn`, and `error`, helping developers build stability dashboards and monitor application health in real-time. Categorizing logs by level allows quick identification of potential risks and anomalies.
 
-4. **插件化架构设计，轻松对接任意日志服务**  
-   采用插件化机制，开发者可自由扩展日志上报能力。内置对阿里云 SLS、腾讯云 CLS 等主流日志服务的支持，同时允许自定义插件，适配私有日志系统或其他第三方服务。
-
----
-
-## 📦 架构设计
-
-awesome-logger 采用分层架构，确保功能解耦与扩展性：
-
-1. **核心层（`@awesome-logger/core`）**  
-   - **Logger 类**：管理日志的生成、等级控制及插件注册。提供 `info`、`warn`、`error` 等方法，支持基础字段配置。
-   - **LogPlugin 抽象类**：定义插件开发规范。所有插件需实现 `sendLog` 方法，负责将日志数据发送到目标服务。
-
-2. **插件层（`@awesome-logger/plugin-*`）**  
-   提供具体日志服务的实现。例如：
-   - `@awesome-logger/plugin-sls`：对接阿里云 SLS 日志服务。
-   开发者可根据规范自定义插件，扩展日志上报能力。
-
-3. **使用层（`@awesome-logger/client`）**  
-   - **Client 类**：封装核心功能，简化用户接入。支持通过 `usePlugin` 注册插件，并提供统一的日志上报接口。
+4. **Plugin-based architecture for seamless integration with any logging service**  
+   With a plugin mechanism, developers can freely extend logging capabilities. Built-in support for major logging services like Alibaba Cloud SLS and Tencent Cloud CLS is provided, along with the ability to create custom plugins for private logging systems or other third-party services.
 
 ---
 
-## 🚀 快速开始
+## 📦 Architecture Design
 
-### 1. 安装依赖
+awesome-logger adopts a layered architecture to ensure functional decoupling and extensibility:
+
+1. **Core Layer (`@awesome-logger/core`)**  
+   - **Logger Class**: Manages log generation, level control, and plugin registration. Provides methods like `info`, `warn`, and `error`, supporting basic field configuration.
+   - **LogPlugin Abstract Class**: Defines plugin development specifications. All plugins must implement the `sendLog` method to send log data to the target service.
+
+2. **Plugin Layer (`@awesome-logger/plugin-*`)**  
+   Provides implementations for specific logging services. For example:
+   - `@awesome-logger/plugin-sls`: Integrates with Alibaba Cloud SLS logging service.
+   Developers can customize plugins according to specifications to extend logging capabilities.
+
+3. **Usage Layer (`@awesome-logger/client`)**  
+   - **Client Class**: Encapsulates core functionality to simplify user integration. Supports plugin registration via `usePlugin` and provides a unified logging interface.
+
+---
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
 ```bash
 npm install @awesome-logger/client @awesome-logger/core @awesome-logger/plugin-sls
 ```
 
-### 2. 初始化与配置
+### 2. Initialization and Configuration
 ```typescript
 import Client from '@awesome-logger/client';
 import { SLSLogPlugin } from '@awesome-logger/plugin-sls';
 
-// 配置基础字段
+// Configure basic fields
 const client = new Client({
   baseFields: {
     appName: 'my-awesome-app',
@@ -63,7 +63,7 @@ const client = new Client({
   }
 });
 
-// 注册阿里云 SLS 插件
+// Register Alibaba Cloud SLS plugin
 const slsPlugin = new SLSLogPlugin({
   endpoint: 'your-sls-endpoint',
   accessKeyId: 'your-access-key-id',
@@ -74,33 +74,33 @@ const slsPlugin = new SLSLogPlugin({
 client.usePlugin(slsPlugin);
 ```
 
-### 3. 上报日志
+### 3. Log Reporting
 ```typescript
-// 上报信息日志
+// Report info log
 client.info('enter_home_page', { page: 'home' });
 
-// 上报警告日志
+// Report warning log
 client.warn('api_timeout', { latency: 500 });
 
-// 上报错误日志
+// Report error log
 client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 ```
 
 ---
 
-## 🛠️ 自定义插件开发
+## 🛠️ Custom Plugin Development
 
-**awesome-logger** 支持开发者自定义插件，轻松对接私有日志系统或其他服务：
+**awesome-logger** supports custom plugin development, enabling seamless integration with private logging systems or other services:
 
-1. **创建插件类**
+1. **Create a Plugin Class**
 ```typescript
 import { LogPlugin } from '@awesome-logger/core';
 
 class CustomLogPlugin extends LogPlugin {
   sendLog(logData: Record<string, any>) {
-    // 自定义日志上报逻辑
-    console.log('自定义日志服务上报:', logData);
-    // 示例：发送到自研日志系统
+    // Custom log reporting logic
+    console.log('Custom log service reporting:', logData);
+    // Example: Send to a self-developed logging system
     fetch('https://your-log-service.com', {
       method: 'POST',
       body: JSON.stringify(logData)
@@ -111,51 +111,51 @@ class CustomLogPlugin extends LogPlugin {
 export default CustomLogPlugin;
 ```
 
-2. **使用自定义插件**
+2. **Use the Custom Plugin**
 ```typescript
 import Client from '@awesome-logger/client';
 import CustomLogPlugin from './CustomLogPlugin';
 
 const client = new Client();
-const customPlugin = new CustomLogPlugin({ /* 自定义配置 */ });
+const customPlugin = new CustomLogPlugin({ /* Custom configuration */ });
 client.usePlugin(customPlugin);
 
-client.info('这是一条自定义插件上报的日志');
+client.info('This is a log reported by the custom plugin');
 ```
 
 ---
-## 日志内置字段介绍
-|字段|类型|说明|
+
+## Built-in Log Fields
+|Field|Type|Description|
 |-|-|-|
-|uid|string | number|用户uid|
-|release|string|前端应用版本号|
-|env|string|环境：本地local、预发pre、线上prod|
-|type|string|类型，如日志等级：info、warn、error|
-|key|string|日志key，用以标识一条日志记录|
-|data|Record<string, any> | string|日志key对应到data数据|
-|ua|string|浏览器navigator.userAgent信息|
-|url|string|当前页面的url信息|
-|os|string|当前设备的操作系统信息|
-|osVersion|string|当前设备的操作系统版本|
-|traceId|string|前后端一起约定的uuid，用以追踪问题|
-|sessionId|string|会话ID，用以区分同一个会话范围内的日志|
-|browser|string|浏览器：chrome、Safari、ios_safari等|
-|browserVersion|string|浏览器版本信息|
-|container|string|页面运行所在容器信息，如：dingtalk（钉钉）、browser（浏览器）|
-|device|string|设备类型，如：phone（手机端）、desktop（桌面端）|
-|clientTime|string | number|客户端时间戳|
-
-
----
-
-## 🤝 贡献与反馈
-我们欢迎社区贡献！如果您有功能建议、bug 反馈或想参与开发，请提交 [GitHub Issue](https://github.com/ivonzhang/awesome-logger/issues) 或 Pull Request。
+|uid|string | number|User UID|
+|release|string|Frontend application version|
+|env|string|Environment: local, pre, prod|
+|type|string|Type, such as log level: info, warn, error|
+|key|string|Log key, used to identify a log record|
+|data|Record<string, any> | string|Data corresponding to the log key|
+|ua|string|Browser navigator.userAgent information|
+|url|string|Current page URL information|
+|os|string|Operating system information of the current device|
+|osVersion|string|Operating system version of the current device|
+|traceId|string|UUID agreed upon by frontend and backend for issue tracking|
+|sessionId|string|Session ID, used to distinguish logs within the same session|
+|browser|string|Browser: Chrome, Safari, iOS Safari, etc.|
+|browserVersion|string|Browser version information|
+|container|string|Container where the page runs, e.g., DingTalk, browser|
+|device|string|Device type, e.g., phone, desktop|
+|clientTime|string | number|Client timestamp|
 
 ---
 
-## 📄 许可证
-**awesome-logger** 采用 MIT 许可证，详见 [LICENSE](LICENSE) 文件。
+## 🤝 Contribution and Feedback
+We welcome community contributions! If you have feature suggestions, bug reports, or want to participate in development, please submit a [GitHub Issue](https://github.com/ivonzhang/awesome-logger/issues) or Pull Request.
 
 ---
 
-通过 awesome-logger，您可以轻松实现前端日志的标准化、可观测性与灵活上报，让日志成为您应用稳定性的强大助力！
+## 📄 License
+**awesome-logger** is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+With awesome-logger, you can easily achieve standardized, observable, and flexible frontend logging, making logs a powerful aid for your application's stability!
