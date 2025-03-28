@@ -19,8 +19,7 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup",
-    "publish": "pnpm publish  --access public"
+    "build": "tsup"
   },
   "dependencies": {
     "@awesome-logger/core": "workspace:*"

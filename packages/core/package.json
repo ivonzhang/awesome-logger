@@ -19,8 +19,7 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup",
-    "publish": "pnpm publish"
+    "build": "tsup"
   },
   "dependencies": {
     "nanoid": "5.1.5",
