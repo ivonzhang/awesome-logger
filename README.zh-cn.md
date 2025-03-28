@@ -92,8 +92,11 @@ client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 ```
 
 ### 4. 日志上报到阿里云 SLS
+效果如下图:
 
 ![demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
+
+
 
 > 注意事项
 1. 在使用 plugin-sls 之前，您需要创建一个阿里云账户。

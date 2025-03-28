@@ -92,8 +92,12 @@ client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 ```
 
 ### 4. Log to Alibaba Cloud SLS
+The effect is as shown below:
+
 
 ![demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
+
+
 
 > Attention
 1. Before using the plugin-sls, you need to create an Alibaba Cloud account.
