@@ -38,7 +38,6 @@ The `client` package automatically includes the following built-in fields in eve
 | `sessionId`     | string              | Session ID for grouping logs within a session   |
 | `browser`       | string              | Browser name: Chrome, Safari, etc.             |
 | `browserVersion`| string              | Browser version information                     |
-| `container`     | string              | Container info: browser, dingtalk, etc.         |
 | `device`        | string              | Device type: phone, desktop, etc.              |
 | `clientTime`    | string \| number    | Client-side timestamp                           |
 
@@ -48,16 +47,21 @@ Below is an example demonstrating the ease of use and powerful capabilities of t
 
 ```javascript
 import Client from '@awesome-logger/client';
+import { Logger } from '@awesome-logger/core';
 import { SLSLogPlugin } from '@awesome-logger/plugin-sls';
 
-// Configure base fields for all logs
-const client = new Client({
-  baseFields: {
-    release: '0.1.0',
-    env: 'production',
-    uid: 'user_123'
-  }
+// create logger 
+const logger = new Logger({
+  uid: 'test_user_1',
+  release: '1.0.0',
+  env: 'production',
 });
+
+// Configure base fields for all logs
+const client = new Client(logger);
+
+// you can also use logger.setBaseField function for some async scene
+logger.setBaseField({ uid: 'user_001' });
 
 // Register the Alibaba Cloud SLS plugin
 const slsPlugin = new SLSLogPlugin({
