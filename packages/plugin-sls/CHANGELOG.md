@@ -1,5 +1,11 @@
 # @awesome-logger/plugin-sls
 
+## 1.0.3
+
+### Patch Changes
+
+- fix the wrong name of SLSLogPlugin
+
 ## 1.0.2
 
 ### Patch Changes
