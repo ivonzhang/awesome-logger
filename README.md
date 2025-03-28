@@ -95,7 +95,7 @@ client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 The effect is as shown below:
 
 
-![demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
+![sls-demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
 
 
 
