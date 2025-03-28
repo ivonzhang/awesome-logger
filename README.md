@@ -52,16 +52,21 @@ npm install @awesome-logger/client @awesome-logger/core @awesome-logger/plugin-s
 ### 2. Initialization and Configuration
 ```typescript
 import Client from '@awesome-logger/client';
+import { Logger } from '@awesome-logger/core';
 import { SLSLogPlugin } from '@awesome-logger/plugin-sls';
 
-// Configure basic fields
-const client = new Client({
-  baseFields: {
-    appName: 'my-awesome-app',
-    env: 'production',
-    uid: 'user_123'
-  }
+// create logger 
+const logger = new Logger({
+  uid: 'test_user_1',
+  release: '1.0.0',
+  env: 'production',
 });
+
+// you can also use logger.setBaseField function for some async scene
+logger.setBaseField({ uid: 'user_001' });
+
+// Configure basic fields
+const client = new Client(logger);
 
 // Register Alibaba Cloud SLS plugin
 const slsPlugin = new SLSLogPlugin({
