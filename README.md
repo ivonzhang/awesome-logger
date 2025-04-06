@@ -122,10 +122,10 @@ client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 ### 4. Log to Alibaba Cloud SLS
 The effect is as shown below:
 <a href="https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif" target="_blank">
-  🔥 click to view（open in the new tab）
+  🔥 click to view the gif（open in the new tab）
 </a>
 
-![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls_sql.gif)
+![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls-error-demo.png)
 
 
 

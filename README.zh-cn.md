@@ -122,10 +122,10 @@ client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
 
 ### 4. 日志上报到阿里云 SLS
 效果如下图:<a href="https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif" target="_blank">
-  🔥 点击查看插件测试动画（新标签页打开）
+  🔥 点击查看插件测试动画 gif（新标签页打开）
 </a>
 
-![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls_sql.gif)
+![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls-error-demo.png)
 
 
 
