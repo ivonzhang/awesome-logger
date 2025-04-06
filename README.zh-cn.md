@@ -96,7 +96,7 @@ client.error('api_fail', { errorCode: 500, endpoint: '/api/data' });
   🔥 点击查看插件测试动画（新标签页打开）
 </a>
 
-![demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
+![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls-sql.gif)
 
 
 

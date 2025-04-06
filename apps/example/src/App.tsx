@@ -11,9 +11,6 @@ function App() {
         });
         break;
       case 'error':
-        client.error('error', {
-          err: new Error('error message'),
-        });
         break;
       case 'warn':
         client.warn('warn', {

@@ -97,7 +97,7 @@ The effect is as shown below:
   🔥 click to view（open in the new tab）
 </a>
 
-![sls-demo](https://ivonzhang.github.io/awesome-logger/images/plugin-sls-test.gif)
+![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls-sql.gif)
 
 
 
