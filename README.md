@@ -8,6 +8,34 @@
 
 ---
 
+## 🎯 Use Cases
+
+awesome-logger provides precise solutions for various development needs, suitable for the following scenarios:
+
+1. **Quickly Locate User Issues**  
+- **Core Advantage**: Built-in fields like `os`, `device`, and `ua` automatically collect complete context.  
+- **Typical Scenario**: When users report anomalies, logs can be filtered in real-time (e.g., Alibaba Cloud SLS) to pinpoint device, operation path, and other information within seconds.
+
+2. **Application Health Monitoring**  
+- **Core Advantage**: Supports log levels like `info`, `warn`, and `error`, aiding in stability dashboard construction.  
+- **Typical Scenario**: Real-time monitoring of API error rates, memory leaks, etc., to quickly identify potential application risks.
+
+3. **Homogeneous Reporting to Multiple Log Systems**  
+- **Core Advantage**: Plugin-based architecture supports simultaneous integration with multiple services like Alibaba Cloud SLS and Tencent Cloud CLS.  
+- **Typical Scenario**: Cross-cloud deployment projects or transitioning between old and new logging systems, enabling one-time reporting to multiple platforms.
+
+4. **Custom Log Extensions**  
+- **Core Advantage**: Customize reporting logic via the `LogPlugin` interface (e.g., private systems, data encryption).  
+- **Typical Scenario**: Enterprise private deployments or sensitive data handling (financial/medical scenarios).
+
+5. **Efficient Development and Standardization**  
+- **Core Advantage**: Out-of-the-box mainstream plugins (SLS/CLS) allow initialization in 10 lines of code.  
+- **Typical Scenario**: Startups or agile development teams reduce redundant infrastructure development.
+
+Through lightweight design and flexible extensions, awesome-logger helps developers balance efficiency, stability, and observability.
+
+---
+
 ## 🌟 Key Advantages
 
 1. **Built-in standardized log fields for efficient troubleshooting**  
@@ -97,7 +125,7 @@ The effect is as shown below:
   🔥 click to view（open in the new tab）
 </a>
 
-![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls-sql.gif)
+![sls-demo](https://ivonzhang.github.io/awesome-logger/images/sls_sql.gif)
 
 
 
