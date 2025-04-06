@@ -26,6 +26,9 @@ importers:
       eslint-plugin-prettier:
         specifier: 5.2.5
         version: 5.2.5(eslint-config-prettier@10.1.1(eslint@9.23.0))(eslint@9.23.0)(prettier@3.5.3)
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
       turbo:
         specifier: 2.4.4
         version: 2.4.4

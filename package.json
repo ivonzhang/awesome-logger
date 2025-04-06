@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "publish:packages": "pnpm publish -r --access public"
+    "publish:packages": "pnpm publish -r --access public",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "sls",
@@ -29,6 +31,7 @@
     "eslint": "9.23.0",
     "eslint-config-prettier": "10.1.1",
     "eslint-plugin-prettier": "5.2.5",
+    "prettier": "^3.5.3",
     "turbo": "2.4.4"
   },
   "packageManager": "pnpm@10.7.0",
