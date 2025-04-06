@@ -1,6 +1,6 @@
-import { LogPlugin } from "@awesome-logger/core";
-import { SlsWebTracker } from "./tracker";
-import { IMap, ISlsPluginConfig } from "./types";
+import { LogPlugin } from '@awesome-logger/core';
+import { SlsWebTracker } from './tracker';
+import { IMap, ISlsPluginConfig } from './types';
 
 export class SLSLogPlugin extends LogPlugin {
   private slsTracker: SlsWebTracker;

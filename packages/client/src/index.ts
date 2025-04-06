@@ -1,4 +1,4 @@
-import { Logger, LogPlugin } from "@awesome-logger/core";
+import { Logger, LogPlugin } from '@awesome-logger/core';
 
 class Client {
   private logger: Logger;

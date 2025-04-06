@@ -4,7 +4,7 @@ import MyCustomLogPlugin from '../plugin';
 
 import { SLSLogPlugin } from '@awesome-logger/plugin-sls';
 
-// create logger 
+// create logger
 const logger = new Logger({
   uid: 'test_user_1',
   release: '1.0.0',

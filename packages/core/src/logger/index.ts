@@ -1,15 +1,11 @@
-import dayjs from "dayjs";
-import { serializeError } from "serialize-error";
+import dayjs from 'dayjs';
+import { serializeError } from 'serialize-error';
 
-import { LogPlugin } from "../plugin";
-import { ILoggerBaseFieldModel, ILoggerCommonFieldModel } from "../types";
-import {
-  clientSessionId,
-  clientSessionTime,
-  clientSessionTimeStr,
-} from "../utils/env/host";
-import { browser, browserVersion } from "../utils/dom/browser";
-import { device, os, version as osVersion } from "../utils/env/os";
+import { LogPlugin } from '../plugin';
+import { ILoggerBaseFieldModel, ILoggerCommonFieldModel } from '../types';
+import { clientSessionId, clientSessionTime, clientSessionTimeStr } from '../utils/env/host';
+import { browser, browserVersion } from '../utils/dom/browser';
+import { device, os, version as osVersion } from '../utils/env/os';
 
 export class Logger {
   private seqId = 1; // 日志序号
@@ -30,10 +26,10 @@ export class Logger {
 
   constructor(
     baseFields: ILoggerBaseFieldModel = {
-      uid: "",
-      release: "",
-      env: "",
-    }
+      uid: '',
+      release: '',
+      env: '',
+    },
   ) {
     this.baseFields = baseFields;
   }
@@ -68,7 +64,7 @@ export class Logger {
    */
   private log(type: string, key: string, data?: Record<string, any> | string | number | boolean) {
     const clientTime = Date.now();
-    const clientTimeStr = dayjs(clientTime).format("MM-DD HH:mm:ss");
+    const clientTimeStr = dayjs(clientTime).format('MM-DD HH:mm:ss');
     const sendSeqId = this.seqId++;
     // 合并日志数据
     const logData = {
@@ -106,7 +102,7 @@ export class Logger {
    * @param data
    */
   info(key: string, data?: Record<string, any>) {
-    this.log("info", key, data);
+    this.log('info', key, data);
   }
 
   /**
@@ -115,7 +111,7 @@ export class Logger {
    * @param data
    */
   warn(key: string, data?: Record<string, any>) {
-    this.log("warn", key, data);
+    this.log('warn', key, data);
   }
 
   /**
@@ -124,6 +120,6 @@ export class Logger {
    * @param data
    */
   error(key: string, data?: Record<string, any>) {
-    this.log("error", key, data);
+    this.log('error', key, data);
   }
 }

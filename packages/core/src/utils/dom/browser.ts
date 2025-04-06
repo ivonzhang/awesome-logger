@@ -1,23 +1,22 @@
 // 获取操作系统和浏览器相关信息
 
 export enum Browser {
-  Chrome = "chrome",
-  Firefox = "firefox",
-  Safari = "safari",
-  IE = "ie",
-  Edge = "edge",
-  UC = "uc",
-  iOS_Safari = "ios_safari",
-  Opera = "opera",
-  Samsung = "samsung",
-  Unknown = "unknown",
+  Chrome = 'chrome',
+  Firefox = 'firefox',
+  Safari = 'safari',
+  IE = 'ie',
+  Edge = 'edge',
+  UC = 'uc',
+  iOS_Safari = 'ios_safari',
+  Opera = 'opera',
+  Samsung = 'samsung',
+  Unknown = 'unknown',
 }
 
 /**
  * 判断是否是浏览器环境
  */
-export const testUserAgent = (regexp: RegExp): boolean =>
-  typeof window !== "undefined" && regexp.test(window.navigator.userAgent);
+export const testUserAgent = (regexp: RegExp): boolean => typeof window !== 'undefined' && regexp.test(window.navigator.userAgent);
 
 /**
  * 检测浏览器类型
@@ -55,23 +54,23 @@ export function detectBrowserVersion(browser: Browser): string {
 
   switch (browser) {
     case Browser.Chrome:
-      return userAgent.match(/(?:chrome|crios)\/([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/(?:chrome|crios)\/([\d.]+)/i)?.[1] || 'Unknown';
     case Browser.Firefox:
-      return userAgent.match(/firefox\/([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/firefox\/([\d.]+)/i)?.[1] || 'Unknown';
     case Browser.Safari:
-      return userAgent.match(/version\/([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/version\/([\d.]+)/i)?.[1] || 'Unknown';
     case Browser.IE:
-      return userAgent.match(/(?:msie |rv:)([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/(?:msie |rv:)([\d.]+)/i)?.[1] || 'Unknown';
     case Browser.Edge:
-      return userAgent.match(/edg\/([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/edg\/([\d.]+)/i)?.[1] || 'Unknown';
     case Browser.Opera:
-      return userAgent.match(/opr\/([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/opr\/([\d.]+)/i)?.[1] || 'Unknown';
     case Browser.UC:
-      return userAgent.match(/ucbrowser\/([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/ucbrowser\/([\d.]+)/i)?.[1] || 'Unknown';
     case Browser.Samsung:
-      return userAgent.match(/samsungbrowser\/([\d.]+)/i)?.[1] || "Unknown";
+      return userAgent.match(/samsungbrowser\/([\d.]+)/i)?.[1] || 'Unknown';
     default:
-      return "Unknown";
+      return 'Unknown';
   }
 }
 
